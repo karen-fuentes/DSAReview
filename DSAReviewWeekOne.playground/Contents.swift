@@ -46,13 +46,25 @@ func reverseAString2(str: String) -> String {
     var myReversedStr: String = ""
     
     for character in str.characters {
-        myReversedStr = String(character) + myReversedStr
+        var temp = String(character) + myReversedStr
+        withUnsafePointer(to: &temp, { (addr)  in
+            print(addr)
+        })
+        print(temp)
+       myReversedStr = temp
     }
+    
+    var temp = String(Character("F")) + myReversedStr
+    withUnsafePointer(to: &temp, { (addr)  in
+        print(addr)
+    })
+    print(temp)
+    
     return myReversedStr
 }
 
-//reverseAString2(str: "hello")
-//reverseAString(str: "hello")
+reverseAString2(str: "hello")
+reverseAString(str: "hello")
 
 
 /*
