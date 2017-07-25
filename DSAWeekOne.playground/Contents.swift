@@ -4,7 +4,39 @@ import UIKit
 
 var str = "Hello, playground"
 
-/* 
+// create a function that returns the amount of times a palindrome appears in a scentence ex "bob" : 2 , Mom: 3, "racecar": 1
+
+func howManyPalindrome(with sentence: String) -> [String:Int] {
+    var palindromeDict = [String:Int]()
+    let words = sentence.components(separatedBy: " ")
+    words.forEach { (word) in
+        if isPalindrome(word: word) {
+           let counter = palindromeDict[word] ?? 0
+           palindromeDict[word] = counter + 1
+        }
+    }
+    return palindromeDict
+}
+
+// Below is the helper function that checks whether the word is an actual palindrome. While the current inex which starts off at 0 is less than half of the length of charactes in the word we will check if the character at the current index is equal to the last character and keep moving on both ends of the word itself until we reach the midpoint
+
+func isPalindrome(word: String) -> Bool {
+   var currentIndex = 0
+   let characters = Array(word.lowercased().characters)
+
+    while currentIndex < characters.count/2 {
+        if characters[currentIndex] != characters[characters.count - currentIndex - 1 ] {
+            return false
+        }
+        currentIndex += 1
+    }
+   return true
+}
+
+//howManyPalindrome(with: "racecar racecar bob bob bob anna sushi")
+
+
+/*
  Clarifying Questions: Reverse A String
  
  1) Can we use a higher ordered function?
@@ -12,14 +44,14 @@ var str = "Hello, playground"
  3) How do I handle whitespace and punctuation?
  */
 
-/* 
+/*
  Identifying inputs and ouputs
  1) input: String
-    output: String
+ output: String
  2) input: String
-    output: Void (Print the Reversed String)
+ output: Void (Print the Reversed String)
  3) input: Void (By extending Swift String Struct)
-    output: Void
+ output: Void
  
  */
 
@@ -51,7 +83,7 @@ func reverseAString2(str: String) -> String {
             print(addr)
         })
         print(temp)
-       myReversedStr = temp
+        myReversedStr = temp
     }
     
     var temp = String(Character("F")) + myReversedStr
@@ -91,7 +123,7 @@ func twoSum(of arr: [Int], target: Int) -> [Int] {
         } else {
             hashMap[arr[index]] = index
         }
-            print(hashMap)
+        print(hashMap)
     }
     
     return result
@@ -156,22 +188,22 @@ func addList(listOne: ListNode?, listTwo: ListNode?) -> ListNode? {
 }
 
 /* https://leetcode.com/problems/intersection-of-two-arrays/#/description
- 1. ask clarifying questions 
-    how do we handle negaitve numbers 
-    how should we order the return array
-    do we need to handle array of types other than Int 
+ 1. ask clarifying questions
+ how do we handle negaitve numbers
+ how should we order the return array
+ do we need to handle array of types other than Int
  
- 2. Identify inputs and outputs 
-    input: [Int], [Int] 
-    output; [Int]
+ 2. Identify inputs and outputs
+ input: [Int], [Int]
+ output; [Int]
  
  3. Talk through the solution
-    a. SET turn both arrays into sets, then retirned the intersection of both sets 
-    b. NO SET - iterate through an input array and for each value check to see if the seocond array contians that value. If it does and the final array doesnt yet contain that value, appened it to the final array
+ a. SET turn both arrays into sets, then retirned the intersection of both sets
+ b. NO SET - iterate through an input array and for each value check to see if the seocond array contians that value. If it does and the final array doesnt yet contain that value, appened it to the final array
  
  4. code and explain your solution
  */
- 
+
 // func intersection(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
 //    let testSetOne = Set(nums1)
 //    let testSetTwo = Set(nums2)
@@ -192,14 +224,14 @@ func intersection(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
 /* https://leetcode.com/problems/keyboard-row/#/description
  
  1. ask clarifying questions
-
+ 
  
  2. Identify inputs and outputs
  input: [String]
  output: [Sting]
  
  3. Talk through the solution
-
+ 
  
  4. code and explain your solution
  */
@@ -214,15 +246,15 @@ func findWords(_ words: [String]) -> [String] {
     for word in words {
         for char in word.lowercased().characters {
             switch char {
-            //case _ where firstRow.contains(char):
+                //case _ where firstRow.contains(char):
                 
                 
                 
             default:
                 break
-            
+                
+            }
         }
-    }
     }
     
     
@@ -337,3 +369,4 @@ class Solution {
         
     }
 }
+
