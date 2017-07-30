@@ -54,6 +54,41 @@ func isItaPalindrome(input: String) -> Bool {
 
 
 
+// Challenge 3: Do two strings contain the same characters -> write a function that takes in two strings as paramaters and returns true if the contain the same characters in the any order taking into account the letter case 
+
+/* Examples
+ input: "abca" "abca"                   output: True
+ input: "abc" "cba"                     output:True
+ input: "abc" "Abc"                     output: false
+ input: "a1 b2" "b 1 a 2"               output: true
+ input: "abc" "cbAa"                    output: false
+ */
+
+func theSameCharacters(inputOne: String, inputTwo: String)-> Bool{
+    let nospaceOne = inputOne.replacingOccurrences(of: " ", with: "")
+    let nospaceTwo = inputTwo.replacingOccurrences(of: " ", with: "")
+    let array1 = Array(nospaceOne.characters)
+    let array2 = Array(nospaceTwo.characters)
+    
+    return array1.sorted() == array2.sorted()
+
+}
+
+//theSameCharacters(inputOne: "a1 b2", inputTwo: "b 1 a 2")
+
+
+//Challenge 4: Does one string contain the another -> write your own version of the contains() method on string that ignore letter case and without using the existing contains() method 
+extension String {
+    func funkyContains( inputOne: String, inputTwo: String) -> Bool {
+        
+        return true
+    }
+}
+
+
+
+
+
 
 
 
